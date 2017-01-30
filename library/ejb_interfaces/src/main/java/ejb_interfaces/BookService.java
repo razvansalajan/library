@@ -3,6 +3,7 @@ package ejb_interfaces;
 import model.Book;
 
 import javax.ejb.Local;
+import java.util.List;
 
 /**
  * Created by razvan.salajan on 1/30/17.
@@ -10,5 +11,7 @@ import javax.ejb.Local;
 
 @Local
 public interface BookService {
-    Book getBook();
+  List<Book> getAllBooks();
+
+  Book getBook();
 }

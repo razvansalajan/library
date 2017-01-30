@@ -6,8 +6,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="test" method="get">
-      <button type="submit" >test me</button>
+	<form action="bookServlet" method="get">
+      <button type="submit" >Load All Books</button>
     </form>
 </body>
 </html>

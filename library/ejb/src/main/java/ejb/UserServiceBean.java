@@ -17,7 +17,7 @@ import javax.persistence.Query;
 @Local(UserService.class)
 public class UserServiceBean implements UserService {
 
-  @PersistenceContext(unitName="LibraryUnit")
+  @PersistenceContext(unitName = "LibraryUnit")
   private EntityManager em;
 
   public User getUser() {
