@@ -1,0 +1,8 @@
+<application>
+    <module>
+        <web>
+            <web-uri>web.war</web-uri>
+            <context-root>library</context-root>
+        </web>
+    </module>
+</application>

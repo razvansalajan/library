@@ -1,0 +1,4 @@
+//rootProject.name = 'master'
+//includeFlat('web', 'jpa', 'ejb_interfaces', 'ejb_classes')
+includeFlat('jpa','ejb_interfaces', 'ejb', 'web')
+
