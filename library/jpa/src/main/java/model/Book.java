@@ -1,9 +1,6 @@
 package model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by sbreban on 1/30/17.
@@ -18,6 +15,9 @@ public class Book {
   private String author;
   private String publisher;
   private int year;
+  @OneToOne()
+  @JoinColumn(name = "department_id")
+  private Department department;
 
   public Book() {
   }
@@ -67,5 +67,13 @@ public class Book {
 
   public void setYear(int year) {
     this.year = year;
+  }
+
+  public Department getDepartment() {
+    return department;
+  }
+
+  public void setDepartment(Department department) {
+    this.department = department;
   }
 }

@@ -4,6 +4,7 @@ package web;
  */
 
 import ejb_interfaces.BookService;
+import ejb_interfaces.UserService;
 
 import java.io.IOException;
 import javax.ejb.EJB;
@@ -16,9 +17,12 @@ public class BooksServlet extends HttpServlet {
     @EJB
     BookService bookService;
 
+    @EJB
+    UserService userService;
+
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.getWriter().println(bookService.getBook().getTitle());
+        response.getWriter().println(userService.getUser().getFullName());
     }
 
     @Override
