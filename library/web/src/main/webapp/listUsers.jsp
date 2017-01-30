@@ -38,6 +38,8 @@
       <td><c:out value="${user.id}"/></td>
       <td><c:out value="${user.userName}"/></td>
       <td><c:out value="${user.fullName}"/></td>
+      <td><a
+          href="userServlet?action=viewBooks&userId=<c:out value="${user.id}"/>">View books</a></td>
     </tr>
   </c:forEach>
   </tbody>

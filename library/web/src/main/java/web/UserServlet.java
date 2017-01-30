@@ -25,17 +25,27 @@ public class UserServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     String forward = "listUsers.jsp";
-    String searchValue = request.getParameter("searchValue");
-    String searchKey = request.getParameter("searchKey");
-    List<User> users;
-    if (searchValue != null) {
-      users = userService.searchUsers(searchKey, searchValue);
-      request.setAttribute("searchValue", searchValue);
-      request.setAttribute("searchKey", searchKey);
+    String action = request.getParameter("action");
+    if (action != null) {
+      if (action.equals("viewBooks")) {
+        int userId = Integer.parseInt(request.getParameter("userId"));
+        User user = userService.getUser(userId);
+        forward = "listBooks.jsp";
+        request.setAttribute("books", user.getRentedBooks());
+      }
     } else {
-      users = userService.getAllUsers();
+      String searchValue = request.getParameter("searchValue");
+      String searchKey = request.getParameter("searchKey");
+      List<User> users;
+      if (searchValue != null) {
+        users = userService.searchUsers(searchKey, searchValue);
+        request.setAttribute("searchValue", searchValue);
+        request.setAttribute("searchKey", searchKey);
+      } else {
+        users = userService.getAllUsers();
+      }
+      request.setAttribute("users", users);
     }
-    request.setAttribute("users", users);
     RequestDispatcher requestDispatcher = request.getRequestDispatcher(forward);
     requestDispatcher.forward(request, response);
   }

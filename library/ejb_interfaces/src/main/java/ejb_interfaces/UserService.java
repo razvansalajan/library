@@ -12,5 +12,6 @@ import java.util.List;
 @Local
 public interface UserService {
   List<User> getAllUsers();
+  User getUser(int userId);
   List<User> searchUsers(String searchKey, String searchValue);
 }
