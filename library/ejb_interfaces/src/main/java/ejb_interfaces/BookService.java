@@ -13,5 +13,5 @@ import java.util.List;
 public interface BookService {
   List<Book> getAllBooks();
 
-  Book getBook();
+  List<Book> searchBooks(String searchKey, String searchValue);
 }

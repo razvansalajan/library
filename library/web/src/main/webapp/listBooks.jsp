@@ -15,6 +15,15 @@
   <title>Show All Books</title>
 </head>
 <body>
+<form action="bookServlet" method="get">
+  <select name="searchKey">
+    <option value="title">Title</option>
+    <option value="author">Author</option>
+    <option value="publisher">Publisher</option>
+  </select>
+  <input name="searchValue" type="text" value=${searchValue}>
+  <button type="submit">Search</button>
+</form>
 <table border="1">
   <thead>
   <tr>

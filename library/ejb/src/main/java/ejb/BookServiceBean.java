@@ -23,10 +23,9 @@ public class BookServiceBean implements BookService {
     return books;
   }
 
-  public Book getBook() {
-    Query query = em.createQuery("select b from Book b where b.id = :id");
-    query.setParameter("id", 1);
-    Book book = (Book) query.getSingleResult();
-    return book;
+  public List<Book> searchBooks(String searchKey, String searchValue) {
+    Query query = em.createQuery("select b from Book b where b." + searchKey + " like '%" + searchValue + "%'");
+    List<Book> books = (List<Book>) query.getResultList();
+    return books;
   }
 }
