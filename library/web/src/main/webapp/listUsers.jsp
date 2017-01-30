@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: sbreban
   Date: 1/30/17
-  Time: 8:48 PM
+  Time: 9:40 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -15,11 +15,10 @@
   <title>Show All Books</title>
 </head>
 <body>
-<form action="bookServlet" method="get">
+<form action="userServlet" method="get">
   <select name="searchKey">
-    <option value="title">Title</option>
-    <option value="author">Author</option>
-    <option value="publisher">Publisher</option>
+    <option value="userName">User name</option>
+    <option value="fullName">Full name</option>
   </select>
   <input name="searchValue" type="text" value=${searchValue}>
   <button type="submit">Search</button>
@@ -28,23 +27,17 @@
   <thead>
   <tr>
     <th>ID</th>
-    <th>Title</th>
-    <th>Author</th>
-    <th>Publisher</th>
-    <th>Year</th>
-    <th>Department</th>
+    <th>User name</th>
+    <th>Full name</th>
     <th colspan="2">Action</th>
   </tr>
   </thead>
   <tbody>
-  <c:forEach items="${books}" var="book">
+  <c:forEach items="${users}" var="user">
     <tr>
-      <td><c:out value="${book.id}"/></td>
-      <td><c:out value="${book.title}"/></td>
-      <td><c:out value="${book.author}"/></td>
-      <td><c:out value="${book.publisher}"/></td>
-      <td><c:out value="${book.year}"/></td>
-      <td><c:out value="${book.department.name}"/></td>
+      <td><c:out value="${user.id}"/></td>
+      <td><c:out value="${user.userName}"/></td>
+      <td><c:out value="${user.fullName}"/></td>
     </tr>
   </c:forEach>
   </tbody>

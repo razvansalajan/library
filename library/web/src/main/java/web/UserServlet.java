@@ -3,8 +3,8 @@ package web;
  * Created by razvan.salajan on 1/30/17.
  */
 
-import ejb_interfaces.BookService;
-import model.Book;
+import ejb_interfaces.UserService;
+import model.User;
 
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
@@ -16,26 +16,26 @@ import java.io.IOException;
 import java.util.List;
 import java.util.logging.Logger;
 
-public class BooksServlet extends HttpServlet {
+public class UserServlet extends HttpServlet {
   @EJB
-  BookService bookService;
+  UserService userService;
 
   private Logger log = Logger.getLogger(BooksServlet.class.getName());
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    String forward = "listBooks.jsp";
+    String forward = "listUsers.jsp";
     String searchValue = request.getParameter("searchValue");
     String searchKey = request.getParameter("searchKey");
-    List<Book> books;
+    List<User> users;
     if (searchValue != null) {
-      books = bookService.searchBooks(searchKey, searchValue);
+      users = userService.searchUsers(searchKey, searchValue);
       request.setAttribute("searchValue", searchValue);
       request.setAttribute("searchKey", searchKey);
     } else {
-      books = bookService.getAllBooks();
+      users = userService.getAllUsers();
     }
-    request.setAttribute("books", books);
+    request.setAttribute("users", users);
     RequestDispatcher requestDispatcher = request.getRequestDispatcher(forward);
     requestDispatcher.forward(request, response);
   }
@@ -45,4 +45,3 @@ public class BooksServlet extends HttpServlet {
     doGet(request, response);
   }
 }
-
