@@ -14,4 +14,5 @@ public interface UserService {
   List<User> getAllUsers();
   User getUser(int userId);
   List<User> searchUsers(String searchKey, String searchValue);
+  void returnBook(int userId, int bookId);
 }

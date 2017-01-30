@@ -28,10 +28,14 @@ public class UserServlet extends HttpServlet {
     String action = request.getParameter("action");
     if (action != null) {
       if (action.equals("viewBooks")) {
+        forward = "listUserBooks.jsp";
         int userId = Integer.parseInt(request.getParameter("userId"));
         User user = userService.getUser(userId);
-        forward = "listBooks.jsp";
-        request.setAttribute("books", user.getRentedBooks());
+        request.setAttribute("user", user);
+      } else if (action.equals("returnBook")) {
+        int userId = Integer.parseInt(request.getParameter("userId"));
+        int bookId = Integer.parseInt(request.getParameter("bookId"));
+        userService.returnBook(userId, bookId);
       }
     } else {
       String searchValue = request.getParameter("searchValue");
