@@ -6,7 +6,7 @@
         version="3.0">
     <servlet>
         <servlet-name>test</servlet-name>
-        <servlet-class>web_test.TestServlet2</servlet-class>
+        <servlet-class>web.BooksServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>test</servlet-name>
