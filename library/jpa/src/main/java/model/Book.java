@@ -18,15 +18,17 @@ public class Book {
   @OneToOne()
   @JoinColumn(name = "department_id")
   private Department department;
+  private int availableNo;
 
   public Book() {
   }
 
-  public Book(String title, String author, String publisher, int year) {
+  public Book(String title, String author, String publisher, int year, int availableNo) {
     this.title = title;
     this.author = author;
     this.publisher = publisher;
     this.year = year;
+    this.availableNo = availableNo;
   }
 
   public int getId() {
@@ -75,5 +77,13 @@ public class Book {
 
   public void setDepartment(Department department) {
     this.department = department;
+  }
+
+  public int getAvailableNo() {
+    return availableNo;
+  }
+
+  public void setAvailableNo(int availableNo) {
+    this.availableNo = availableNo;
   }
 }

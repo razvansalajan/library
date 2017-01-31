@@ -65,7 +65,7 @@ CREATE TABLE `book_rentals` (
 
 LOCK TABLES `book_rentals` WRITE;
 /*!40000 ALTER TABLE `book_rentals` DISABLE KEYS */;
-INSERT INTO `book_rentals` VALUES (1,1,'2017-01-31 19:08:42');
+INSERT INTO `book_rentals` VALUES (2,2,'2017-01-31 19:34:19');
 /*!40000 ALTER TABLE `book_rentals` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -83,6 +83,7 @@ CREATE TABLE `books` (
   `publisher` varchar(50) NOT NULL,
   `year` int(11) NOT NULL,
   `department_id` int(11) NOT NULL,
+  `availableNo` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `books_departments_fk` (`department_id`),
   CONSTRAINT `books_departments_fk` FOREIGN KEY (`department_id`) REFERENCES `departments` (`id`)
@@ -95,7 +96,7 @@ CREATE TABLE `books` (
 
 LOCK TABLES `books` WRITE;
 /*!40000 ALTER TABLE `books` DISABLE KEYS */;
-INSERT INTO `books` VALUES (1,'Elon Musk: Inventing the Future','Ashlee Vance','Ecco',2015,1),(2,'Design Patterns: Elements of Reusable Object-Oriented Software','Erich Gamma, Ralph Johnson, John Vlissides, Richard Helm','Addison-Wesley Professional ',1994,2),(3,'Concrete Mathematics: A Foundation for Computer Science','Ronald L. Graham, Donald Ervin Knuth, Oren Patashnik','Addison-Wesley Professional ',1994,3);
+INSERT INTO `books` VALUES (1,'Elon Musk: Inventing the Future','Ashlee Vance','Ecco',2015,1,1),(2,'Design Patterns: Elements of Reusable Object-Oriented Software','Erich Gamma, Ralph Johnson, John Vlissides, Richard Helm','Addison-Wesley Professional ',1994,2,2),(3,'Concrete Mathematics: A Foundation for Computer Science','Ronald L. Graham, Donald Ervin Knuth, Oren Patashnik','Addison-Wesley Professional ',1994,3,4);
 /*!40000 ALTER TABLE `books` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -157,4 +158,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-01-31 21:10:08
+-- Dump completed on 2017-01-31 21:35:05

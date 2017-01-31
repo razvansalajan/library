@@ -30,6 +30,8 @@ public class BookServiceBean implements BookService {
   }
 
   public List<Book> getAllAvailableBooks() {
-    return getAllBooks();
+    Query query = em.createQuery("select b from Book b where b.availableNo > 0");
+    List<Book> books = (List<Book>) query.getResultList();
+    return books;
   }
 }

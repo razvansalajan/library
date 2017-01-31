@@ -52,6 +52,7 @@ public class UserServiceBean implements UserService {
 
     if (user.getRentedBooks().contains(book)) {
       user.getRentedBooks().remove(book);
+      book.setAvailableNo(book.getAvailableNo() + 1);
     }
   }
 
@@ -62,6 +63,7 @@ public class UserServiceBean implements UserService {
 
     if (!user.getRentedBooks().contains(book)) {
       user.getRentedBooks().add(book);
+      book.setAvailableNo(book.getAvailableNo() - 1);
     }
   }
 }
