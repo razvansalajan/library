@@ -25,17 +25,26 @@ public class BooksServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     String forward = "listBooks.jsp";
-    String searchValue = request.getParameter("searchValue");
-    String searchKey = request.getParameter("searchKey");
-    List<Book> books;
-    if (searchValue != null) {
-      books = bookService.searchBooks(searchKey, searchValue);
-      request.setAttribute("searchValue", searchValue);
-      request.setAttribute("searchKey", searchKey);
+    String action = request.getParameter("action");
+    if (action != null) {
+      String userId = request.getParameter("userId");
+      forward = "rentBooks.jsp";
+      List<Book> books = bookService.getAllAvailableBooks();
+      request.setAttribute("books", books);
+      request.setAttribute("userId", userId);
     } else {
-      books = bookService.getAllBooks();
+      String searchValue = request.getParameter("searchValue");
+      String searchKey = request.getParameter("searchKey");
+      List<Book> books;
+      if (searchValue != null) {
+        books = bookService.searchBooks(searchKey, searchValue);
+        request.setAttribute("searchValue", searchValue);
+        request.setAttribute("searchKey", searchKey);
+      } else {
+        books = bookService.getAllBooks();
+      }
+      request.setAttribute("books", books);
     }
-    request.setAttribute("books", books);
     RequestDispatcher requestDispatcher = request.getRequestDispatcher(forward);
     requestDispatcher.forward(request, response);
   }

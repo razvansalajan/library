@@ -14,4 +14,6 @@ public interface BookService {
   List<Book> getAllBooks();
 
   List<Book> searchBooks(String searchKey, String searchValue);
+
+  List<Book> getAllAvailableBooks();
 }

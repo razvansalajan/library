@@ -51,7 +51,7 @@ DROP TABLE IF EXISTS `book_rentals`;
 CREATE TABLE `book_rentals` (
   `book_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `rent_date` date NOT NULL,
+  `rent_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`user_id`),
   KEY `book_rentals_books_fk` (`book_id`),
   CONSTRAINT `book_rentals_books_fk` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`),
@@ -65,7 +65,7 @@ CREATE TABLE `book_rentals` (
 
 LOCK TABLES `book_rentals` WRITE;
 /*!40000 ALTER TABLE `book_rentals` DISABLE KEYS */;
-INSERT INTO `book_rentals` VALUES (1,1,'2017-01-30');
+INSERT INTO `book_rentals` VALUES (1,1,'2017-01-31 19:08:42');
 /*!40000 ALTER TABLE `book_rentals` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -157,4 +157,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-01-30 19:52:35
+-- Dump completed on 2017-01-31 21:10:08
