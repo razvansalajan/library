@@ -1,0 +1,26 @@
+<div class="container">
+<table class="table">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>title</th>
+        <th>author</th>
+        <th>publisher</th>
+        <th>year</th>
+        <th>departament</th>
+        <th>number of exemplars</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books" (dblclick)="clickRow(book)">
+                <td>{{book.id}}</td>
+                <td>{{book.title}}</td>
+                <td>{{book.author}}</td>
+                <td>{{book.publisher}}</td>
+                <td>{{book.year}}</td>
+                <td>{{book.department?.name}}</td>
+                <td>{{book.availableNo}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

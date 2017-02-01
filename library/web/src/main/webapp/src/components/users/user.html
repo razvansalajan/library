@@ -1,0 +1,31 @@
+ <div class="container">
+ <select [(ngModel)]="searchKey"  (ngModelChange)="updateUsers()">
+       <option *ngFor="let currOpt of optionType" [value]="currOpt">    {{currOpt}}</option>
+     </select>
+<input type="string" [value]="searchValue" (input)="setSearchValue($event.target.value)" />
+<table class="table">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>username</th>
+        <th>fullname</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users" (dblclick)="clickRow(user)">
+                <td>{{user.id}}</td>
+                <td>{{user.userName}}</td>
+                <td>{{user.fullName}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!--
+  <div class="container">
+    <h2>Basic List Group</h2>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let book of books.books">
+        {{ book.id }}
+      </li>
+    </ul>
+  </div> -->
