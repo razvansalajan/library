@@ -1,0 +1,40 @@
+<div class="container">
+  <select [(ngModel)]="tip"  (ngModelChange)="updateDulap()">
+       <option *ngFor="let tip1 of tipuri" [value]="tip1.name">    {{tip1.name}}</option>
+       <!-- <option [value]="a">a</option>
+       <option [value]="b">b</option> -->
+     </select>
+<!-- <input type="string" [value]="searchValue" (input)="searchValue = $event.target.value" /> -->
+<input type="string" [value]="searchValue" (input)="setSearchValue($event.target.value)" />
+<table class="table">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>title</th>
+        <th>author</th>
+        <th>publisher</th>
+        <th>year</th>
+        <th>departament</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books.books" (click)="clickRow(book)">
+                <td>{{book.id}}</td>
+                <td>{{book.title}}</td>
+                <td>{{book.author}}</td>
+                <td>{{book.publisher}}</td>
+                <td>{{book.year}}</td>
+                <td>{{book.department?.name}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!--
+  <div class="container">
+    <h2>Basic List Group</h2>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let book of books.books">
+        {{ book.id }}
+      </li>
+    </ul>
+  </div> -->

@@ -11,4 +11,5 @@ dependencies {
     compile 'javax:javaee-api:+'
     compile project(':jpa')
     compile project(':ejb_interfaces')
+    compile 'com.google.code.gson:gson:2.2.4'
 }

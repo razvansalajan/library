@@ -15,6 +15,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>bookServletAngular</servlet-name>
+        <servlet-class>web.BooksServletAngular</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>bookServletAngular</servlet-name>
+        <url-pattern>/bookServletAngular</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>userServlet</servlet-name>
         <servlet-class>web.UserServlet</servlet-class>
     </servlet>
