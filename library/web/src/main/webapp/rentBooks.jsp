@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: sbreban
-  Date: 1/30/17
-  Time: 10:29 PM
+  Date: 1/31/17
+  Time: 8:52 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -15,6 +15,15 @@
   <title>Show All Books</title>
 </head>
 <body>
+<form action="bookServlet" method="get">
+  <select name="searchKey">
+    <option value="title">Title</option>
+    <option value="author">Author</option>
+    <option value="publisher">Publisher</option>
+  </select>
+  <input name="searchValue" type="text" value=${searchValue}>
+  <button type="submit">Search</button>
+</form>
 <table border="1">
   <thead>
   <tr>
@@ -28,7 +37,7 @@
   </tr>
   </thead>
   <tbody>
-  <c:forEach items="${user.rentedBooks}" var="book">
+  <c:forEach items="${books}" var="book">
     <tr>
       <td><c:out value="${book.id}"/></td>
       <td><c:out value="${book.title}"/></td>
@@ -36,11 +45,10 @@
       <td><c:out value="${book.publisher}"/></td>
       <td><c:out value="${book.year}"/></td>
       <td><c:out value="${book.department.name}"/></td>
-      <td><a href="userServlet?action=returnBook&userId=<c:out value="${user.id}"/>&bookId=<c:out value="${book.id}"/>">Return book</a></td>
+      <td><a href="userServlet?action=rentBook&userId=<c:out value="${userId}"/>&bookId=<c:out value="${book.id}"/>">Rent book</a></td>
     </tr>
   </c:forEach>
   </tbody>
 </table>
-<a href="bookServlet?action=rentBooks&userId=<c:out value="${user.id}"/>">Rent books</a>
 </body>
 </html>

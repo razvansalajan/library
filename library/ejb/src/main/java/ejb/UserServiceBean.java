@@ -52,6 +52,18 @@ public class UserServiceBean implements UserService {
 
     if (user.getRentedBooks().contains(book)) {
       user.getRentedBooks().remove(book);
+      book.setAvailableNo(book.getAvailableNo() + 1);
+    }
+  }
+
+  @Transactional
+  public void rentBook(int userId, int bookId) {
+    User user = em.find(User.class, userId);
+    Book book = em.find(Book.class, bookId);
+
+    if (!user.getRentedBooks().contains(book)) {
+      user.getRentedBooks().add(book);
+      book.setAvailableNo(book.getAvailableNo() - 1);
     }
   }
 }

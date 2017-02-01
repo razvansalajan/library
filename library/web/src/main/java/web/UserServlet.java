@@ -36,6 +36,10 @@ public class UserServlet extends HttpServlet {
         int userId = Integer.parseInt(request.getParameter("userId"));
         int bookId = Integer.parseInt(request.getParameter("bookId"));
         userService.returnBook(userId, bookId);
+      } else if (action.equals("rentBook")) {
+        int userId = Integer.parseInt(request.getParameter("userId"));
+        int bookId = Integer.parseInt(request.getParameter("bookId"));
+        userService.rentBook(userId, bookId);
       }
     } else {
       String searchValue = request.getParameter("searchValue");
