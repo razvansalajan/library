@@ -10,7 +10,7 @@ import {routing, appRoutingProviders} from './app.routes';
 import {UserModule} from '../users/user.module';
 import {RentedBooksModule} from '../managebooks/rentedbooks/rentedbooks.module';
 import {ManageBooksModule} from '../managebooks/managebooks.module';
-
+import {BorrowBooksModule} from '../managebooks/borrowbooks/borrowbooks.module';
 //import {DulapServiceComponent} from '../dulap/dulap_service.component';
 
 @NgModule({
@@ -19,7 +19,8 @@ import {ManageBooksModule} from '../managebooks/managebooks.module';
                 StartModule,
                 UserModule,
                 RentedBooksModule,
-                ManageBooksModule],
+                ManageBooksModule,
+                BorrowBooksModule],
   declarations: [ TrainerAppComponent],
   providers: [
     appRoutingProviders
