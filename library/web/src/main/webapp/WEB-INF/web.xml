@@ -61,4 +61,13 @@
         <url-pattern>/returnBookAngular</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>borrowBookAngular</servlet-name>
+        <servlet-class>web.BorrowBookServletAngular</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>borrowBookAngular</servlet-name>
+        <url-pattern>/borrowBookAngular</url-pattern>
+    </servlet-mapping>
+
 </web-app>

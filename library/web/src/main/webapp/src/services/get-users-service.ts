@@ -37,6 +37,12 @@ export class GetUsersService {
       .catch(GetUsersService.handleError);
   }
 
+  borrowBook(userId: number, bookId: number){
+    return this.http.get('borrowBookAngular?userId='+userId+"&bookId=" + bookId)
+      .map((res: Response) => <Book[]>res.json())
+      .catch(GetUsersService.handleError);
+  }
+
   static handleError (error: Response) {
     console.error(error);
     return Observable.throw(error.json().error || 'Server error');

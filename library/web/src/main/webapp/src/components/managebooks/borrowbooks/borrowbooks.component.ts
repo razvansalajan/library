@@ -1,10 +1,12 @@
 import {Component,OnInit} from '@angular/core';
-import {Book, BookList, Department, Tipuri} from '../../dulap/model'
-import {DulapService} from '../../../services/dulap-service'
+import {Book, BookList, Department, Tipuri} from '../../dulap/model';
+import {DulapService} from '../../../services/dulap-service';
 import {Http,Response} from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import {Observable} from 'rxjs/Rx';
+import {GetUsersService} from '../../../services/get-users-service';
+import {DataShareService} from '../../../services/data-share-service';
 
 @Component({
   selector: 'borrowbooks',
@@ -16,8 +18,11 @@ export class BorrowBooksComponent{
   tipuri: Tipuri[];
   tip: string;
   searchValue: string;
-  dulapService: DulapService
-  constructor(dulapService: DulapService){
+  dulapService: DulapService;
+  managerBooksService: GetUsersService;
+  dataShareService: DataShareService;
+  constructor(dulapService: DulapService, managerBooksService: GetUsersService,
+      dataShareService: DataShareService){
     this.books = new BookList([]);
     this.tip = "";
     this.searchValue = "";
@@ -29,6 +34,8 @@ export class BorrowBooksComponent{
           this.books = new BookList(data);
     },
     (err: any) => console.error(err));
+    this.managerBooksService = managerBooksService;
+    this.dataShareService = dataShareService;
   }
 
   public setSearchValue(newValue: string){
@@ -50,5 +57,11 @@ export class BorrowBooksComponent{
     console.log(book.id + "de unde trebe");
     console.log(this.tip);
     console.log(this.searchValue);
+    this.managerBooksService.borrowBook(this.dataShareService.userId, book.id)
+      .subscribe(
+      (data:Book[])=> {
+        this.books = new BookList(data);
+      },
+      (err: any) => console.error(err));
   }
 }
