@@ -14,14 +14,6 @@
         <url-pattern>/bookServlet</url-pattern>
     </servlet-mapping>
 
-    <servlet>
-        <servlet-name>bookServletAngular</servlet-name>
-        <servlet-class>web.BooksServletAngular</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>bookServletAngular</servlet-name>
-        <url-pattern>/bookServletAngular</url-pattern>
-    </servlet-mapping>
 
     <servlet>
         <servlet-name>userServlet</servlet-name>
@@ -32,5 +24,41 @@
         <url-pattern>/userServlet</url-pattern>
     </servlet-mapping>
 
+    <!--angular-->
+    <servlet>
+        <servlet-name>bookServletAngular</servlet-name>
+        <servlet-class>web.BooksServletAngular</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>bookServletAngular</servlet-name>
+        <url-pattern>/bookServletAngular</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>getUsersAngular</servlet-name>
+        <servlet-class>web.GetUsersServletAngular</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>getUsersAngular</servlet-name>
+        <url-pattern>/getUsersAngular</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>getRentedBooksAngular</servlet-name>
+        <servlet-class>web.GetRentedBooksServletAngular</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>getRentedBooksAngular</servlet-name>
+        <url-pattern>/getRentedBooksAngular</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>returnBookAngular</servlet-name>
+        <servlet-class>web.ReturnBookServletAngular</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>returnBookAngular</servlet-name>
+        <url-pattern>/returnBookAngular</url-pattern>
+    </servlet-mapping>
 
 </web-app>
