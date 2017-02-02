@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
                   </div>
                 </div>
               </div>
-      <div class="container body-content app-container">
+              <div class="container body-content app-container">
                 <router-outlet></router-outlet>
               </div>`
 })

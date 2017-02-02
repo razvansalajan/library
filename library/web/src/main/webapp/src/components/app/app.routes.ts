@@ -8,9 +8,16 @@ import {ManageBooksComponent} from '../managebooks/managebooks.component';
 import {BorrowBooksComponent} from '../managebooks/borrowbooks/borrowbooks.component';
 
 export const routes: Routes= [
-  { path: 'start', component: StartComponent },
+  { path:'', redirectTo:'start', pathMatch:'full'},
+  { path: 'start', component: StartComponent
+//}
+  ,
+  children: [
+    {path:'', redirectTo:'dulap', pathMatch:'full'},
   { path: 'dulap', component: DulapComponent},
   {path: 'users', component: UserComponent},
+  // children: [
+  //{ path: '', redirectTo: 'users', pathMatch: 'full'},
   {path: 'managebooks', component: ManageBooksComponent
   ,
     children: [
@@ -18,8 +25,12 @@ export const routes: Routes= [
       { path: 'rentedbooks', component: RentedBooksComponent },
       { path: 'borrowbooks', component: BorrowBooksComponent }
       ]
-    },
-  { path: '**', redirectTo:'/start'}
+    }
+  ]
+}
+  // ]}
+  // ,
+  // { path: '**', redirectTo:'/start'}
 ];
 export const appRoutingProviders: any[] = [
 

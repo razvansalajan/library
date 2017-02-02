@@ -1,4 +1,10 @@
+<div class="container">
 <span class="label label-primary">user_id: {{userId}}</span>
-<a [routerLink]="['rentedbooks']">Return a book</a>
-<a [routerLink]="['borrowbooks']">Borrow a book</a>
+<!-- <a [routerLink]="['rentedbooks']">Return a book</a>
+<a [routerLink]="['borrowbooks']">Borrow a book</a> -->
+<button type="button" class="btn btn-primary btn-sm" (click)="handleReturn()">return</button>
+<button type="button" class="btn btn-primary btn-sm" (click)="handleBorrow()">borrow</button>
+<div>
+<div class="container">
 <router-outlet></router-outlet>
+</div>

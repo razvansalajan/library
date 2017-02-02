@@ -1,7 +1,7 @@
 import {Component,OnInit} from '@angular/core';
 import {DataShareService} from '../../services/data-share-service';
 import {User} from './model';
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 import {GetUsersService} from '../../services/get-users-service';
 
 @Component({
@@ -16,7 +16,8 @@ export class UserComponent{
   searchValue: string;
   searchKey: string;
   optionType: string[];
-  constructor(dataShare: DataShareService, router: Router, getUsersService: GetUsersService){
+  r: ActivatedRoute;
+  constructor(dataShare: DataShareService, router: Router, getUsersService: GetUsersService, r:ActivatedRoute){
     this.dataShare = dataShare;
     this.router = router;
     this.users = [];
@@ -30,11 +31,12 @@ export class UserComponent{
           this.users = data;
     },
     (err: any) => console.error(err));
+    this.r = r;
   }
 
   public clickRow(user:User) {
     this.dataShare.userId = user.id;
-    this.router.navigate( ['/managebooks'] );
+    this.router.navigate( ['../managebooks'], { relativeTo: this.r } );
     console.log(this.dataShare.userId);
   }
   public setSearchValue(newValue: string){
